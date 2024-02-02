@@ -35,6 +35,7 @@ slots:
     - A set of objects to define notes in a field. For example, most Redcap and NDA
       data dictionaries have notes for each item which needs to be captured in reproschema.
     slot_uri: reproschema:additionalNotesObj
+    multivalued: true
     any_of:
     - range: AdditionalNoteObj
   allow:
@@ -56,6 +57,13 @@ slots:
     - A media object that encodes this CreativeWork. This property is a synonym for
       encoding.
     slot_uri: schema:associatedMedia
+  audio:
+    title: audio
+    comments:
+      - TDOO
+    slot_uri: schema:audio
+    range: uriorcurie
+    inlined: true
   choices:
     title: choices
     comments:
@@ -74,8 +82,10 @@ slots:
     comments:
     - An element to define the column name where the note was taken from.
     slot_uri: reproschema:column
+    multivalued: true
     any_of:
-    - range: langString # TODO: should we create a new type for this?
+      - range: string
+      - range: langString
   compute:
     title: computation
     comments:
@@ -87,10 +97,13 @@ slots:
     multivalued: true
     any_of:
     - range: ComputeSpecification
+  contentUrl:
+    slot_uri: schema:contentUrl
+    range: uriorcurie
   cronTable:
     title: cronTable
     comments:
-    - TODO: not described in reproschema
+      - TODO not described in reproschema
     slot_uri: reproschema:cronTable
   datumType:
     title: datumType
@@ -104,6 +117,7 @@ slots:
   description:
     slot_uri: schema:description
   endedAtTime:
+    range: datetime
     slot_uri: prov:endedAtTime
   generated:
     slot_uri: prov:generated
@@ -113,8 +127,13 @@ slots:
     - An image of the item. This can be a <a class="localLink" href="http://schema.org/URL">URL</a>
       or a fully described <a class="localLink" href="http://schema.org/ImageObject">ImageObject</a>.
     slot_uri: schema:image
+    range: uriorcurie
   inLanguage:
     slot_uri: schema:inLanguage
+    multivalued: true
+    any_of:
+    - range: string
+    - range: langString
   inputType:
     title: inputType
     comments:
@@ -156,8 +175,9 @@ slots:
     - An element (by URL) to point to the protocol readme or landing page.
     slot_uri: reproschema:landingPage
     any_of:
-    - range: string
     - range: uri
+    - range: string
+    - range: LandingPage
   limit:
     title: limit
     comments:
@@ -172,12 +192,16 @@ slots:
     any_of:
     - range: decimal
   maxValue:
+    any_of:
+      - range: float
+      - range: integer
     slot_uri: schema:maxValue
   message:
     title: Message
     comments:
     - 'The message to be conditionally displayed for an item. '
     slot_uri: reproschema:message
+    multivalued: true
     any_of:
     - range: string
     - range: langString
@@ -191,6 +215,9 @@ slots:
     - range: MessageSpecification
   minValue:
     slot_uri: schema:minValue
+    any_of:
+    - range: float
+    - range: integer
   multipleChoice:
     title: Multiple choice response expectation
     comments:
@@ -199,6 +226,10 @@ slots:
     any_of:
     - range: boolean
   name:
+    multivalued: true
+    any_of:
+    - range: string
+    - range: langString
     slot_uri: schema:name
   order:
     title: Order
@@ -225,6 +256,7 @@ slots:
     comments:
     - The preamble for an assessment
     slot_uri: reproschema:preamble
+    multivalued: true
     any_of:
     - range: string
     - range: langString
@@ -233,8 +265,16 @@ slots:
     comments:
     - The preferred label.
     slot_uri: skos:prefLabel
+    multivalued: true
+    any_of:
+    - range: string
+    - range: langString
   question:
     slot_uri: schema:question
+    multivalued: true
+    any_of:
+    - range: string
+    - range: langString
   randomMaxDelay:
     title: randomMaxDelay
     comments:
@@ -243,6 +283,10 @@ slots:
     slot_uri: reproschema:randomMaxDelay
   readonlyValue:
     slot_uri: schema:readonlyValue
+    range: boolean
+#  requiredValue:
+#    range: boolean
+#    slot_uri: schema:requiredValue
   responseOptions:
     title: Response options
     comments:
@@ -275,7 +319,9 @@ slots:
     comments:
     - An element to define the source (eg. RedCap, NDA) where the note was taken from.
     slot_uri: reproschema:source
+    multivalued: true
     any_of:
+    - range: string
     - range: langString
   statusOptions:
     title: Status options
@@ -284,9 +330,16 @@ slots:
       \ by the additional status option(s) defined in \u201CstatusOptions\u201D"
     slot_uri: reproschema:statusOptions
   startedAtTime:
+    range: datetime
     slot_uri: prov:startedAtTime
   subject_id:
     slot_uri: nidm:subject_id #TODO check this @type:rdf:Property
+  ui:
+    title: UI
+    comments:
+    - it was originally @nest in jsonld, but decided for a new class for now
+    slot_uri: reproschema:ui
+    range: UI
   unitOptions:
     title: unitOptions
     comments:
@@ -300,6 +353,7 @@ slots:
     slot_uri: schema:url
   used:
     slot_uri: prov:used
+    multivalued: true
   value:
     title: value
     comments:
@@ -307,24 +361,28 @@ slots:
     exact_mappings:
     - schema:value
     slot_uri: reproschema:value
+    multivalued: true
     any_of:
     - range: boolean
     - range: decimal
     - range: StructuredValue
     - range: string
+    - range: langString
     - range: uri
-  value_from_schema:
-    slot_uri: schema:value
+#  value_from_schema:
+#    slot_uri: schema:value
   valueType:
     title: The type of the response
     comments:
     - The type of the response of an item. For example, string, integer, etc.
     slot_uri: reproschema:valueType
+    multivalued: true
     any_of:
     - range: string
     - range: langString
   valueRequired:
     slot_uri: schema:valueRequired
+    range: boolean
   variableName:
     title: variableName
     comments:
@@ -332,6 +390,12 @@ slots:
     slot_uri: reproschema:variableName
   version:
     slot_uri: schema:version
+  video:
+    slot_uri: schema:video
+    range: VideoObject
+  wasAssociatedWith:
+    slot_uri: prov:wasAssociatedWith
+    range: SoftwareAgent
   wasAttributedTo:
     slot_uri: prov:wasAttributedTo
     range: Participant
@@ -351,6 +415,7 @@ classes:
     - compute
     - cronTable
     - description
+    - image
     - messages
     - order
     - overrideProperties
@@ -358,6 +423,7 @@ classes:
     - prefLabel
     - schemaVersion
     - shuffle
+    - ui
     - version
     class_uri: reproschema:Activity
   AdditionalNoteObj:
@@ -375,6 +441,7 @@ classes:
     comments:
     - An object to describe the various properties added to assessments and fields.
     slots:
+    - allow
     - isAbout
     - isVis
     - limit
@@ -409,13 +476,13 @@ classes:
     slots:
     - name
     - image
-    - value_from_schema #TODO it was schema:value
+    - value #TODO it was schema:value
 #TODO validator
-    slot_usage:
-      value_from_schema:
-        any_of:
-          - range: Skipped
-          - range: DontKnow
+#    slot_usage:
+#      value_from_schema:
+#        any_of: #Ask Satra
+#          - range: Skipped
+#          - range: DontKnow
     class_uri: reproschema:Choice
   ComputeSpecification:
     title: Compute Specification
@@ -447,6 +514,7 @@ classes:
     - additionalNotesObj
     - altLabel
     - associatedMedia
+    - audio
     - description
     - image
     - inputType
@@ -457,10 +525,30 @@ classes:
     - readonlyValue
     - responseOptions
     - schemaVersion
+    - ui
     - version
+    - video
     class_uri: reproschema:Field
+  LandingPage:
+    title: Landing Page
+    comments:
+    - An object to define the landing page of a protocol.
+    slots:
+    - inLanguage
+    class_uri: reproschema:LandingPage
   langString:
     class_uri: rdf:langString
+  MediaObject:
+    title: Media Object
+    comments:
+      - TODO comments
+    class_uri: schema:MediaObject
+    slots:
+      - contentUrl
+      - inLanguage
+    slot_usage:
+      contentUrl:
+        required: true
   MessageSpecification:
     title: Message Specification
     comments:
@@ -513,6 +601,7 @@ classes:
     - prefLabel
     - schemaVersion
     - shuffle
+    - ui
     - version
     class_uri: reproschema:Protocol
   Response: # multiple types
@@ -522,10 +611,11 @@ classes:
     is_a: CreativeWork
     slots:
     - isAbout
-    - value_from_schema #TODO it was schema:value
+    - ui
+    - value #TODO it was schema:value
     - wasAttributedTo
     slot_usage:
-      value_from_schema:
+      value:
         any_of:
           - range: Skipped
           - range: DontKnow
@@ -547,6 +637,7 @@ classes:
       - inLanguage
       - startedAtTime
       - used
+      - wasAssociatedWith
     class_uri: reproschema:ResponseActivity
   ResponseOption:
     title: Response option
@@ -592,6 +683,25 @@ classes:
     - A boolean element to describe if the response did not occur within the prescribed
       time.
     class_uri: reproschema:TimedOut
+  UI:
+    title: todo
+    comments:
+    - todo
+    slots:
+      - order
+      - addProperties
+      - overrideProperties
+      - message
+      - shuffle
+      - inputType
+      - readonlyValue
+      - allow
+      #- requiredValue # should be valueRequired
+      - valueRequired
+      # - delay todo: never used, meaning? type?
+      # - timer never used
+       #- inputOptions todo never used
+
   UnitOption:
     title: Unit options
     comments:
@@ -606,3 +716,13 @@ classes:
           - range: uri
           - range: string
     class_uri: reproschema:UnitOption
+
+  VideoObject:
+    title: Video Object
+    class_uri: schema:VideoObject
+    slots:
+      - contentUrl
+      - inLanguage
+    slot_usage:
+      contentUrl:
+        required: true
