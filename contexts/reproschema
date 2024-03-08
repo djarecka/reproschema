@@ -19,7 +19,6 @@
          "@prefix": true
       },
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "@vocab": "http://schema.repronim.org/",
       "@version": 1.1,
       "@language": "en",
       "id": "@id",
@@ -30,12 +29,15 @@
       },
       "addProperties": {
          "@container": "@set",
-         "@nest": "ui"
+         "@nest": "ui",
+         "@id": "reproschema:addProperties"
       },
       "additionalNotesObj": {
-         "@container": "@set"
+         "@container": "@set",
+         "@id": "reproschema:additionalNotesObj"
       },
       "allow": {
+         "@id": "reproschema:allow",
          "@type": "@id",
          "@container": "@set",
          "@nest": "ui"
@@ -52,6 +54,7 @@
          "@id": "schema:audio"
       },
       "choices": {
+         "@id": "reproschema:choices",
          "@container": "@set"
       },
       "citation": {
@@ -59,9 +62,11 @@
          "@container": "@language"
       },
       "column": {
+         "@id": "reproschema:column",
          "@type": "xsd:string"
       },
       "compute": {
+         "@id": "reproschema:compute",
          "@container": "@list"
       },
       "contentUrl": {
@@ -90,6 +95,7 @@
          "@id": "schema:image"
       },
       "imageUrl": {
+         "@id": "reproschema:imageUrl",
          "@type": "@id"
       },
       "inLanguage": {
@@ -97,10 +103,12 @@
          "@language": null
       },
       "inputType": {
+         "@id": "reproschema:inputType",
          "@type": "xsd:string",
          "@nest": "ui"
       },
       "isAbout": {
+         "@id": "reproschema:isAbout",
          "@type": "@id"
       },
       "isPartOf": {
@@ -108,25 +116,30 @@
          "@id": "schema:isPartOf"
       },
       "landingPage": {
+         "@id": "reproschema:landingPage",
          "@type": "@id",
          "@container": "@set"
       },
       "limit": {
+         "@id": "reproschema:limit",
          "@language": null
       },
       "maxValue": {
          "@id": "schema:maxValue"
       },
       "message": {
+         "@id": "reproschema:message",
          "@container": "@language"
       },
       "messages": {
+         "@id": "reproschema:messages",
          "@container": "@set"
       },
       "minValue": {
          "@id": "schema:minValue"
       },
       "multipleChoice": {
+         "@id": "reproschema:multipleChoice",
          "@type": "xsd:boolean"
       },
       "name": {
@@ -134,11 +147,13 @@
          "@container": "@language"
       },
       "order": {
+         "@id": "reproschema:order",
          "@type": "@id",
          "@container": "@list",
          "@nest": "ui"
       },
       "overrideProperties": {
+         "@id": "reproschema:overrideProperties",
          "@container": "@set",
          "@nest": "ui"
       },
@@ -155,16 +170,20 @@
          "@container": "@language"
       },
       "randomMaxDelay": {
+         "@id": "reproschema:randomMaxDelay",
          "@language": null
       },
       "readonlyValue": {
+         "@id": "reproschema:readonlyValue",
          "@type": "xsd:boolean",
          "@id": "schema:readonlyValue"
       },
       "responseOptions": {
+         "@id": "reproschema:responseOptions",
          "@type": "@id"
       },
       "schedule": {
+         "@id": "reproschema:schedule",
          "@language": null
       },
       "schemaVersion": {
@@ -172,10 +191,12 @@
          "@language": null
       },
       "shuffle": {
+         "@id": "reproschema:shuffle",
          "@type": "xsd:boolean",
          "@nest": "ui"
       },
       "source": {
+         "@id": "reproschema:source",
          "@type": "xsd:string"
       },
       "startedAtTime": {
@@ -186,6 +207,7 @@
          "@id": "nidm:subject_id"
       },
       "unitOptions": {
+         "@id": "reproschema:unitOptions",
          "@type": "@id",
          "@container": "@set"
       },
@@ -203,6 +225,7 @@
          "@id": "schema:valueRequired"
       },
       "valueType": {
+         "@id": "reproschema:valueType",
          "@type": "@id"
       },
       "version": {
