@@ -63,7 +63,7 @@
       },
       "compute": {
          "@id": "reproschema:compute",
-         "@container": "@index"
+         "@container": "@list"
       },
       "contentUrl": {
          "@type": "@id",
