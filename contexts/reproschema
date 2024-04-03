@@ -62,7 +62,8 @@
          "@type": "xsd:string"
       },
       "compute": {
-         "@id": "reproschema:compute"
+         "@id": "reproschema:compute",
+         "@container": "@list"
       },
       "contentUrl": {
          "@type": "@id",
