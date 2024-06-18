@@ -1,0 +1,2056 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../project-structure/">
+      
+      
+        <link rel="next" href="../user-guide/create-new-protocol/">
+      
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Schema - ReproSchema documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-schema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ReproSchema documentation" class="md-header__button md-logo" aria-label="ReproSchema documentation" data-md-component="logo">
+      
+  <img src="../img/favicon_on_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ReproSchema documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ReproNim/reproschema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ReproNim/reproschema
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ReproSchema documentation" class="md-nav__button md-logo" aria-label="ReproSchema documentation" data-md-component="logo">
+      
+  <img src="../img/favicon_on_white.png" alt="logo">
+
+    </a>
+    ReproSchema documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ReproNim/reproschema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ReproNim/reproschema
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Schema
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Schema
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties-of-reproschema-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties of ReproSchema objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties of ReproSchema objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additionalproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdditionalProperty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overrideproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      OverrideProperty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unitoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      UnitOption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responseoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      ResponseOption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computespecification" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComputeSpecification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagespecification" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageSpecification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additionalnoteobj" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdditionalNoteObj
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responseactivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      ResponseActivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Participant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#softwareagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      SoftwareAgent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/create-new-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a research protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/adopt-assessments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adopt assessments from the library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/create-new-assess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create new assessments for a protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/setup-feedback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a feedback section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/finalize-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finalize the protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toolkit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/using-reproschema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/create-new-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/create-new-activity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a new activity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/create-new-items/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create new items
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/finalizing-the-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finalize the protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/translating-an-activity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translate a questionnaire
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/collecting-demographics-information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demographic information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/tips-to-make-your-life-easier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips to make your life easier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties-of-reproschema-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties of ReproSchema objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties of ReproSchema objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additionalproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdditionalProperty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overrideproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      OverrideProperty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unitoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      UnitOption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responseoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      ResponseOption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computespecification" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComputeSpecification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagespecification" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageSpecification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additionalnoteobj" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdditionalNoteObj
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responseactivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      ResponseActivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Participant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#softwareagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      SoftwareAgent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="the-schema"><a class="toclink" href="#the-schema">The schema</a></h1>
+<h2 id="overview"><a class="toclink" href="#overview">Overview</a></h2>
+<p>A simplistic way to describe the Reprochema is to say it is organized in a hierarchical manner with roughly 3 levels with a schema describing each level.</p>
+<ol>
+<li>
+<p>The highest level is the <code>protocol</code> level that originally define a set of assessments or questionnaires to be
+    included in a given study.
+    This schema is defined by the <a href="https://raw.githubusercontent.com/ReproNim/reproschema/master/terms/Protocol">Protocol schema</a>.</p>
+</li>
+<li>
+<p>The second level is the <code>activity</code> level that describe a given questionnaire. This level would describe all the questions of this assessment: for example all the items of the Edinburgh handedness inventory would constitute one activity.
+    This schema is defined by the <a href="https://raw.githubusercontent.com/ReproNim/reproschema/master/terms/Activity">Activity schema</a>.</p>
+</li>
+<li>
+<p>At a lower level we have the <code>item</code> level where each <code>item</code> represents a question from a given assessment.
+    On top of containing the text of the actual question, the schema at this level can contain additional
+    information such as the expected format of the item for the user interface: a boolean
+    (if this is a yes/no question), a multiple choice (with a list of the response choices),
+    a float or an integer (if a numerical value is expected)...
+    This schema is defined by the <a href="https://raw.githubusercontent.com/ReproNim/reproschema/master/terms/Field">Field schema</a>.</p>
+</li>
+</ol>
+<p><img
+src="../img/reproschema.png"
+alt="reproschema"
+style="width: 800px; height: auto; display: block; margin-left: auto;  margin-right: auto;"/></p>
+<p>You can see an example of those in the <a href="https://github.com/ReproNim/reproschema/tree/master/examples">examples folder</a></p>
+<p>There are in fact more levels than this each and each level has its own schema:</p>
+<ul>
+<li>all of the schemas can be found in the <a href="https://github.com/ReproNim/reproschema/tree/master/terms"><code>terms</code> folder</a></li>
+<li>the Reproschema actually allows for a more complex level nesting than the one described above (e.g you can have an <code>activity</code> within an <code>activity</code>)</li>
+<li>all the properties of each level are described below in the <a href="#properties-of-reproschema-objects">Properties of ReproSchema objects section</a></li>
+</ul>
+<h2 id="detailed-description"><a class="toclink" href="#detailed-description">Detailed description</a></h2>
+<p>The core model of ReproSchema was initially derived from the <a href="https://more.metadatacenter.org/tools-training/outreach/cedar-template-model">CEDAR Metadata Model</a>.
+To accommodate the needs of neuroimaging and other clinical and behavioral
+protocols and assessments the schema has evolved significantly. These changes
+include:</p>
+<ol>
+<li>
+<p>Alignment with <a href="https://schema.org">schema.org</a> and <a href="https://nidm.nidash.org">NIDM</a>.
+    We have used schema.org classes and properties where it maps on to the needs of
+    the model and extended the model with NIDM elements to harmonize across ReproNim projects.</p>
+</li>
+<li>
+<p>Allowing for structured nested elements in a schema
+   <code>Protocol &gt; Activity &gt; [Activity | Field &gt; ResponseOption]</code>. This nested
+   structure provides a flexible schema to represent nested activities, which are
+   common in biomedical and other domains.</p>
+</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Protocol
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── Activity
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── Field
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   │   └── ResponseOption
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   └── Field
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   │   └── ResponseOption
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── Activity
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   │   ├── Field
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   │   │   └── ResponseOption
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   │   ...
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   ...
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── Activity
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   ...
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>...
+</span></code></pre></div>
+<ol>
+<li>
+<p>Interaction with Git/Github or another Web service to deliver a new <code>protocol</code>,
+    <code>ativity</code> or <code>field</code> with a persistent URI, while tracking changes associated with
+    any of these elements. By making every <code>field</code> represented through a persistent URI,
+    a data collection instrument can link the responses to the exact <code>field</code> that was
+    used.</p>
+</li>
+<li>
+<p>Addition of computable elements that are derived from the values entered by a participant.</p>
+</li>
+<li>
+<p>Allowing for user interface (UI) elements that allow interaction between the schema
+    and any implementation that allows collecting data using the schema. By providing
+    some additional UI elements the provider can guide an implementer to allow for
+    more complex data collection behavior.</p>
+</li>
+</ol>
+<p>The <a href="https://repronim.org/reproschema-ui">ReproSchema-UI</a> is a prototype implementation of an UI that leverages these
+different elements of the schema.</p>
+<h2 id="properties-of-reproschema-objects"><a class="toclink" href="#properties-of-reproschema-objects">Properties of ReproSchema objects</a></h2>
+<p>This section lists the core ReproSchema objects and their allowed properties.</p>
+<!-- AUTOGENERATED - DO NOT EDIT BELOW THIS LINE -->
+<!-- This section is generated by the Python script editProperties.py.
+The script uses a released version of the schema to generate the properties. To
+use this script first call:
+python scripts/makeRelease.py <version>
+python scripts/editProperties.py <version>
+-->
+
+<h3 id="protocol"><a class="toclink" href="#protocol">Protocol</a></h3>
+<p>A representation of a study which comprises one or more assessments.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/Protocol">http://schema.repronim.org/Protocol</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addProperties</td>
+<td>An array of objects to describe the various properties added to assessments and fields.</td>
+<td><a href="http://schema.repronim.org/addProperties">http://schema.repronim.org/addProperties</a></td>
+</tr>
+<tr>
+<td>allow</td>
+<td>An array of items indicating properties allowed on an activity or protocol</td>
+<td><a href="http://schema.repronim.org/allow">http://schema.repronim.org/allow</a></td>
+</tr>
+<tr>
+<td>compute</td>
+<td>An array of objects indicating computations in an activity or protocol and maps it to the corresponding Field item. scoring logic is a subset of all computations that could be performed and not all computations will be scoring. For example, one may want to do conversion from one unit to another.</td>
+<td><a href="http://schema.repronim.org/compute">http://schema.repronim.org/compute</a></td>
+</tr>
+<tr>
+<td>landingPage</td>
+<td>An element (by URL) to point to the protocol readme or landing page.</td>
+<td><a href="http://schema.repronim.org/landingPage">http://schema.repronim.org/landingPage</a></td>
+</tr>
+<tr>
+<td>messages</td>
+<td>An array of objects to define conditional messages in an activity or protocol.</td>
+<td><a href="http://schema.repronim.org/messages">http://schema.repronim.org/messages</a></td>
+</tr>
+<tr>
+<td>order</td>
+<td>An ordered list to describe the order in which the items of an assessment or protocol appear in the user interface.</td>
+<td><a href="http://schema.repronim.org/order">http://schema.repronim.org/order</a></td>
+</tr>
+<tr>
+<td>overrideProperties</td>
+<td>An array of objects to override the various properties added to assessments and fields.</td>
+<td><a href="http://schema.repronim.org/overrideProperties">http://schema.repronim.org/overrideProperties</a></td>
+</tr>
+<tr>
+<td>preamble</td>
+<td>The preamble for an assessment</td>
+<td><a href="http://schema.repronim.org/preamble">http://schema.repronim.org/preamble</a></td>
+</tr>
+<tr>
+<td>shuffle</td>
+<td>An element (bool) to determine if the list of items is shuffled or in order.</td>
+<td><a href="http://schema.repronim.org/shuffle">http://schema.repronim.org/shuffle</a></td>
+</tr>
+<tr>
+<td>about</td>
+<td>The subject matter of the Field.</td>
+<td><a href="http://schema.org/about">http://schema.org/about</a></td>
+</tr>
+<tr>
+<td>audio</td>
+<td>An embedded audio object.</td>
+<td><a href="http://schema.org/audio">http://schema.org/audio</a></td>
+</tr>
+<tr>
+<td>description</td>
+<td>A description of the item.</td>
+<td><a href="http://schema.org/description">http://schema.org/description</a></td>
+</tr>
+<tr>
+<td>image</td>
+<td>An image of the item. This can be a <a class="localLink" href="http://schema.org/URL">URL</a> or a fully described <a class="localLink" href="http://schema.org/ImageObject">ImageObject</a>.</td>
+<td><a href="http://schema.org/image">http://schema.org/image</a></td>
+</tr>
+<tr>
+<td>schemaVersion</td>
+<td>Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using an URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application.</td>
+<td><a href="http://schema.org/schemaVersion">http://schema.org/schemaVersion</a></td>
+</tr>
+<tr>
+<td>version</td>
+<td>The version of the CreativeWork embodied by a specified resource.</td>
+<td><a href="http://schema.org/version">http://schema.org/version</a></td>
+</tr>
+<tr>
+<td>video</td>
+<td>An embedded video object.</td>
+<td><a href="http://schema.org/video">http://schema.org/video</a></td>
+</tr>
+<tr>
+<td>altLabel</td>
+<td>The alternate label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#altLabel">http://www.w3.org/2004/02/skos/core#altLabel</a></td>
+</tr>
+<tr>
+<td>prefLabel</td>
+<td>The preferred label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#prefLabel">http://www.w3.org/2004/02/skos/core#prefLabel</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="activity"><a class="toclink" href="#activity">Activity</a></h3>
+<p>An assessment in a protocol.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/Activity">http://schema.repronim.org/Activity</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addProperties</td>
+<td>An array of objects to describe the various properties added to assessments and fields.</td>
+<td><a href="http://schema.repronim.org/addProperties">http://schema.repronim.org/addProperties</a></td>
+</tr>
+<tr>
+<td>allow</td>
+<td>An array of items indicating properties allowed on an activity or protocol</td>
+<td><a href="http://schema.repronim.org/allow">http://schema.repronim.org/allow</a></td>
+</tr>
+<tr>
+<td>compute</td>
+<td>An array of objects indicating computations in an activity or protocol and maps it to the corresponding Field item. scoring logic is a subset of all computations that could be performed and not all computations will be scoring. For example, one may want to do conversion from one unit to another.</td>
+<td><a href="http://schema.repronim.org/compute">http://schema.repronim.org/compute</a></td>
+</tr>
+<tr>
+<td>cronTable</td>
+<td>None</td>
+<td><a href="http://schema.repronim.org/cronTable">http://schema.repronim.org/cronTable</a></td>
+</tr>
+<tr>
+<td>messages</td>
+<td>An array of objects to define conditional messages in an activity or protocol.</td>
+<td><a href="http://schema.repronim.org/messages">http://schema.repronim.org/messages</a></td>
+</tr>
+<tr>
+<td>order</td>
+<td>An ordered list to describe the order in which the items of an assessment or protocol appear in the user interface.</td>
+<td><a href="http://schema.repronim.org/order">http://schema.repronim.org/order</a></td>
+</tr>
+<tr>
+<td>overrideProperties</td>
+<td>An array of objects to override the various properties added to assessments and fields.</td>
+<td><a href="http://schema.repronim.org/overrideProperties">http://schema.repronim.org/overrideProperties</a></td>
+</tr>
+<tr>
+<td>preamble</td>
+<td>The preamble for an assessment</td>
+<td><a href="http://schema.repronim.org/preamble">http://schema.repronim.org/preamble</a></td>
+</tr>
+<tr>
+<td>shuffle</td>
+<td>An element (bool) to determine if the list of items is shuffled or in order.</td>
+<td><a href="http://schema.repronim.org/shuffle">http://schema.repronim.org/shuffle</a></td>
+</tr>
+<tr>
+<td>about</td>
+<td>The subject matter of the Field.</td>
+<td><a href="http://schema.org/about">http://schema.org/about</a></td>
+</tr>
+<tr>
+<td>audio</td>
+<td>An embedded audio object.</td>
+<td><a href="http://schema.org/audio">http://schema.org/audio</a></td>
+</tr>
+<tr>
+<td>citation</td>
+<td>A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.</td>
+<td><a href="http://schema.org/citation">http://schema.org/citation</a></td>
+</tr>
+<tr>
+<td>description</td>
+<td>A description of the item.</td>
+<td><a href="http://schema.org/description">http://schema.org/description</a></td>
+</tr>
+<tr>
+<td>image</td>
+<td>An image of the item. This can be a <a class="localLink" href="http://schema.org/URL">URL</a> or a fully described <a class="localLink" href="http://schema.org/ImageObject">ImageObject</a>.</td>
+<td><a href="http://schema.org/image">http://schema.org/image</a></td>
+</tr>
+<tr>
+<td>schemaVersion</td>
+<td>Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using an URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application.</td>
+<td><a href="http://schema.org/schemaVersion">http://schema.org/schemaVersion</a></td>
+</tr>
+<tr>
+<td>version</td>
+<td>The version of the CreativeWork embodied by a specified resource.</td>
+<td><a href="http://schema.org/version">http://schema.org/version</a></td>
+</tr>
+<tr>
+<td>video</td>
+<td>An embedded video object.</td>
+<td><a href="http://schema.org/video">http://schema.org/video</a></td>
+</tr>
+<tr>
+<td>altLabel</td>
+<td>The alternate label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#altLabel">http://www.w3.org/2004/02/skos/core#altLabel</a></td>
+</tr>
+<tr>
+<td>prefLabel</td>
+<td>The preferred label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#prefLabel">http://www.w3.org/2004/02/skos/core#prefLabel</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="field"><a class="toclink" href="#field">Field</a></h3>
+<p>An item in an assessment.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/Field">http://schema.repronim.org/Field</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>additionalNotesObj</td>
+<td>A set of objects to define notes in a field. For example, most Redcap and NDA data dictionaries have notes for each item which needs to be captured in reproschema.</td>
+<td><a href="http://schema.repronim.org/additionalNotesObj">http://schema.repronim.org/additionalNotesObj</a></td>
+</tr>
+<tr>
+<td>inputType</td>
+<td>An element to describe the input type of a Field item.</td>
+<td><a href="http://schema.repronim.org/inputType">http://schema.repronim.org/inputType</a></td>
+</tr>
+<tr>
+<td>preamble</td>
+<td>The preamble for an assessment</td>
+<td><a href="http://schema.repronim.org/preamble">http://schema.repronim.org/preamble</a></td>
+</tr>
+<tr>
+<td>responseOptions</td>
+<td>An element (object or by URL)to describe the properties of response of the Field item.</td>
+<td><a href="http://schema.repronim.org/responseOptions">http://schema.repronim.org/responseOptions</a></td>
+</tr>
+<tr>
+<td>about</td>
+<td>The subject matter of the Field.</td>
+<td><a href="http://schema.org/about">http://schema.org/about</a></td>
+</tr>
+<tr>
+<td>audio</td>
+<td>An embedded audio object.</td>
+<td><a href="http://schema.org/audio">http://schema.org/audio</a></td>
+</tr>
+<tr>
+<td>description</td>
+<td>A description of the item.</td>
+<td><a href="http://schema.org/description">http://schema.org/description</a></td>
+</tr>
+<tr>
+<td>image</td>
+<td>An image of the item. This can be a <a class="localLink" href="http://schema.org/URL">URL</a> or a fully described <a class="localLink" href="http://schema.org/ImageObject">ImageObject</a>.</td>
+<td><a href="http://schema.org/image">http://schema.org/image</a></td>
+</tr>
+<tr>
+<td>isPartOf</td>
+<td>Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.</td>
+<td><a href="http://schema.org/isPartOf">http://schema.org/isPartOf</a></td>
+</tr>
+<tr>
+<td>question</td>
+<td>A sub property of object. A question.</td>
+<td><a href="http://schema.org/question">http://schema.org/question</a></td>
+</tr>
+<tr>
+<td>readonlyValue</td>
+<td>Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a "hidden" input in an HTML form.</td>
+<td><a href="http://schema.org/readonlyValue">http://schema.org/readonlyValue</a></td>
+</tr>
+<tr>
+<td>schemaVersion</td>
+<td>Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using an URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application.</td>
+<td><a href="http://schema.org/schemaVersion">http://schema.org/schemaVersion</a></td>
+</tr>
+<tr>
+<td>version</td>
+<td>The version of the CreativeWork embodied by a specified resource.</td>
+<td><a href="http://schema.org/version">http://schema.org/version</a></td>
+</tr>
+<tr>
+<td>video</td>
+<td>An embedded video object.</td>
+<td><a href="http://schema.org/video">http://schema.org/video</a></td>
+</tr>
+<tr>
+<td>altLabel</td>
+<td>The alternate label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#altLabel">http://www.w3.org/2004/02/skos/core#altLabel</a></td>
+</tr>
+<tr>
+<td>prefLabel</td>
+<td>The preferred label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#prefLabel">http://www.w3.org/2004/02/skos/core#prefLabel</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="additionalproperty"><a class="toclink" href="#additionalproperty">AdditionalProperty</a></h3>
+<p>An object to describe the various properties added to assessments and fields.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/AdditionalProperty">http://schema.repronim.org/AdditionalProperty</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allow</td>
+<td>An array of items indicating properties allowed on an activity or protocol</td>
+<td><a href="http://schema.repronim.org/allow">http://schema.repronim.org/allow</a></td>
+</tr>
+<tr>
+<td>isAbout</td>
+<td>A pointer to the node describing the item.</td>
+<td><a href="http://schema.repronim.org/isAbout">http://schema.repronim.org/isAbout</a></td>
+</tr>
+<tr>
+<td>isVis</td>
+<td>An element to describe (by boolean or conditional statement) visibility conditions of items in an assessment.</td>
+<td><a href="http://schema.repronim.org/isVis">http://schema.repronim.org/isVis</a></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>An element to limit the duration (uses ISO 8601) this activity is allowed to be completed by once activity is available.</td>
+<td><a href="http://schema.repronim.org/limit">http://schema.repronim.org/limit</a></td>
+</tr>
+<tr>
+<td>maxRetakes</td>
+<td>Defines number of times the item is allowed to be redone.</td>
+<td><a href="http://schema.repronim.org/maxRetakes">http://schema.repronim.org/maxRetakes</a></td>
+</tr>
+<tr>
+<td>randomMaxDelay</td>
+<td>Present activity/item within some random offset of activity available time up to the maximum specified by this ISO 8601 duration</td>
+<td><a href="http://schema.repronim.org/randomMaxDelay">http://schema.repronim.org/randomMaxDelay</a></td>
+</tr>
+<tr>
+<td>schedule</td>
+<td>An element to set make activity available/repeat info using ISO 8601 repeating interval format.</td>
+<td><a href="http://schema.repronim.org/schedule">http://schema.repronim.org/schedule</a></td>
+</tr>
+<tr>
+<td>variableName</td>
+<td>The name used to represent an item.</td>
+<td><a href="http://schema.repronim.org/variableName">http://schema.repronim.org/variableName</a></td>
+</tr>
+<tr>
+<td>valueRequired</td>
+<td>Whether the property must be filled in to complete the action.  Default is false.</td>
+<td><a href="http://schema.org/valueRequired">http://schema.org/valueRequired</a></td>
+</tr>
+<tr>
+<td>prefLabel</td>
+<td>The preferred label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#prefLabel">http://www.w3.org/2004/02/skos/core#prefLabel</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="overrideproperty"><a class="toclink" href="#overrideproperty">OverrideProperty</a></h3>
+<p>An object to override the various properties added to assessments and fields.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/OverrideProperty">http://schema.repronim.org/OverrideProperty</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isAbout</td>
+<td>A pointer to the node describing the item.</td>
+<td><a href="http://schema.repronim.org/isAbout">http://schema.repronim.org/isAbout</a></td>
+</tr>
+<tr>
+<td>isVis</td>
+<td>An element to describe (by boolean or conditional statement) visibility conditions of items in an assessment.</td>
+<td><a href="http://schema.repronim.org/isVis">http://schema.repronim.org/isVis</a></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>An element to limit the duration (uses ISO 8601) this activity is allowed to be completed by once activity is available.</td>
+<td><a href="http://schema.repronim.org/limit">http://schema.repronim.org/limit</a></td>
+</tr>
+<tr>
+<td>maxRetakes</td>
+<td>Defines number of times the item is allowed to be redone.</td>
+<td><a href="http://schema.repronim.org/maxRetakes">http://schema.repronim.org/maxRetakes</a></td>
+</tr>
+<tr>
+<td>randomMaxDelay</td>
+<td>Present activity/item within some random offset of activity available time up to the maximum specified by this ISO 8601 duration</td>
+<td><a href="http://schema.repronim.org/randomMaxDelay">http://schema.repronim.org/randomMaxDelay</a></td>
+</tr>
+<tr>
+<td>schedule</td>
+<td>An element to set make activity available/repeat info using ISO 8601 repeating interval format.</td>
+<td><a href="http://schema.repronim.org/schedule">http://schema.repronim.org/schedule</a></td>
+</tr>
+<tr>
+<td>variableName</td>
+<td>The name used to represent an item.</td>
+<td><a href="http://schema.repronim.org/variableName">http://schema.repronim.org/variableName</a></td>
+</tr>
+<tr>
+<td>valueRequired</td>
+<td>Whether the property must be filled in to complete the action.  Default is false.</td>
+<td><a href="http://schema.org/valueRequired">http://schema.org/valueRequired</a></td>
+</tr>
+<tr>
+<td>prefLabel</td>
+<td>The preferred label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#prefLabel">http://www.w3.org/2004/02/skos/core#prefLabel</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="unitoption"><a class="toclink" href="#unitoption">UnitOption</a></h3>
+<p>An object to represent a human displayable name alongside the more formal value for units.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/UnitOption">http://schema.repronim.org/UnitOption</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>The value for each option in choices or in additionalNotesObj</td>
+<td><a href="http://schema.repronim.org/value">http://schema.repronim.org/value</a></td>
+</tr>
+<tr>
+<td>prefLabel</td>
+<td>The preferred label.</td>
+<td><a href="http://www.w3.org/2004/02/skos/core#prefLabel">http://www.w3.org/2004/02/skos/core#prefLabel</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="responseoption"><a class="toclink" href="#responseoption">ResponseOption</a></h3>
+<p>An element (object or by URL)to describe the properties of response of the Field item.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/ResponseOption">http://schema.repronim.org/ResponseOption</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>choices</td>
+<td>An array to list the available options for response of the Field item.</td>
+<td><a href="http://schema.repronim.org/choices">http://schema.repronim.org/choices</a></td>
+</tr>
+<tr>
+<td>datumType</td>
+<td>Indicates what type of datum the response is (e.g. range,count,scalar etc.) for the Field item.</td>
+<td><a href="http://schema.repronim.org/datumType">http://schema.repronim.org/datumType</a></td>
+</tr>
+<tr>
+<td>multipleChoice</td>
+<td>Indicates (by bool) if response for the Field item has one or more answer.</td>
+<td><a href="http://schema.repronim.org/multipleChoice">http://schema.repronim.org/multipleChoice</a></td>
+</tr>
+<tr>
+<td>unitOptions</td>
+<td>A list of objects to represent a human displayable name alongside the more formal value for units.</td>
+<td><a href="http://schema.repronim.org/unitOptions">http://schema.repronim.org/unitOptions</a></td>
+</tr>
+<tr>
+<td>valueType</td>
+<td>The type of the response of an item. For example, string, integer, etc.</td>
+<td><a href="http://schema.repronim.org/valueType">http://schema.repronim.org/valueType</a></td>
+</tr>
+<tr>
+<td>maxValue</td>
+<td>The upper value of some characteristic or property.</td>
+<td><a href="http://schema.org/maxValue">http://schema.org/maxValue</a></td>
+</tr>
+<tr>
+<td>minValue</td>
+<td>The lower value of some characteristic or property.</td>
+<td><a href="http://schema.org/minValue">http://schema.org/minValue</a></td>
+</tr>
+<tr>
+<td>unitCode</td>
+<td>The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.</td>
+<td><a href="http://schema.org/unitCode">http://schema.org/unitCode</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="choice"><a class="toclink" href="#choice">Choice</a></h3>
+<p>An object to describe a response option.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/Choice">http://schema.repronim.org/Choice</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>The value for each option in choices or in additionalNotesObj</td>
+<td><a href="http://schema.repronim.org/value">http://schema.repronim.org/value</a></td>
+</tr>
+<tr>
+<td>image</td>
+<td>An image of the item. This can be a <a class="localLink" href="http://schema.org/URL">URL</a> or a fully described <a class="localLink" href="http://schema.org/ImageObject">ImageObject</a>.</td>
+<td><a href="http://schema.org/image">http://schema.org/image</a></td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the item.</td>
+<td><a href="http://schema.org/name">http://schema.org/name</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="computespecification"><a class="toclink" href="#computespecification">ComputeSpecification</a></h3>
+<p>An object to define computations in an activity or protocol.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/ComputeSpecification">http://schema.repronim.org/ComputeSpecification</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jsExpression</td>
+<td>A JavaScript expression to compute a score from other variables.</td>
+<td><a href="http://schema.repronim.org/jsExpression">http://schema.repronim.org/jsExpression</a></td>
+</tr>
+<tr>
+<td>variableName</td>
+<td>The name used to represent an item.</td>
+<td><a href="http://schema.repronim.org/variableName">http://schema.repronim.org/variableName</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="messagespecification"><a class="toclink" href="#messagespecification">MessageSpecification</a></h3>
+<p>An object to define messages in an activity or protocol.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/MessageSpecification">http://schema.repronim.org/MessageSpecification</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jsExpression</td>
+<td>A JavaScript expression to compute a score from other variables.</td>
+<td><a href="http://schema.repronim.org/jsExpression">http://schema.repronim.org/jsExpression</a></td>
+</tr>
+<tr>
+<td>message</td>
+<td>The message to be conditionally displayed for an item.</td>
+<td><a href="http://schema.repronim.org/message">http://schema.repronim.org/message</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="additionalnoteobj"><a class="toclink" href="#additionalnoteobj">AdditionalNoteObj</a></h3>
+<p>A set of objects to define notes in a field. For example, most Redcap and NDA data dictionaries have notes for each item which needs to be captured in reproschema</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/AdditionalNoteObj">http://schema.repronim.org/AdditionalNoteObj</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column</td>
+<td>An element to define the column name where the note was taken from.</td>
+<td><a href="http://schema.repronim.org/column">http://schema.repronim.org/column</a></td>
+</tr>
+<tr>
+<td>source</td>
+<td>An element to define the source (eg. RedCap, NDA) where the note was taken from.</td>
+<td><a href="http://schema.repronim.org/source">http://schema.repronim.org/source</a></td>
+</tr>
+<tr>
+<td>value</td>
+<td>The value for each option in choices or in additionalNotesObj</td>
+<td><a href="http://schema.repronim.org/value">http://schema.repronim.org/value</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="responseactivity"><a class="toclink" href="#responseactivity">ResponseActivity</a></h3>
+<p>Captures information about some action that took place. It also links to information (entities) that were used during the activity</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/ResponseActivity">http://schema.repronim.org/ResponseActivity</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>endedAtTime</td>
+<td>None</td>
+<td><a href="http://www.w3.org/ns/prov#endedAtTime">http://www.w3.org/ns/prov#endedAtTime</a></td>
+</tr>
+<tr>
+<td>generated</td>
+<td>None</td>
+<td><a href="http://www.w3.org/ns/prov#generated">http://www.w3.org/ns/prov#generated</a></td>
+</tr>
+<tr>
+<td>startedAtTime</td>
+<td>None</td>
+<td><a href="http://www.w3.org/ns/prov#startedAtTime">http://www.w3.org/ns/prov#startedAtTime</a></td>
+</tr>
+<tr>
+<td>used</td>
+<td>None</td>
+<td><a href="http://www.w3.org/ns/prov#used">http://www.w3.org/ns/prov#used</a></td>
+</tr>
+<tr>
+<td>wasAssociatedWith</td>
+<td>None</td>
+<td><a href="http://www.w3.org/ns/prov#wasAssociatedWith">http://www.w3.org/ns/prov#wasAssociatedWith</a></td>
+</tr>
+<tr>
+<td>inLanguage</td>
+<td>The language of the content or performance or used in an action. Please use one of the language codes from the <a href="http://tools.ietf.org/html/bcp47">IETF BCP 47 standard</a>. See also [[availableLanguage]].</td>
+<td><a href="http://schema.org/inLanguage">http://schema.org/inLanguage</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="response"><a class="toclink" href="#response">Response</a></h3>
+<p>Describes the response of an item.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/Response">http://schema.repronim.org/Response</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wasAttributedTo</td>
+<td>None</td>
+<td><a href="http://www.w3.org/ns/prov#wasAttributedTo">http://www.w3.org/ns/prov#wasAttributedTo</a></td>
+</tr>
+<tr>
+<td>isAbout</td>
+<td>A pointer to the node describing the item.</td>
+<td><a href="http://schema.repronim.org/isAbout">http://schema.repronim.org/isAbout</a></td>
+</tr>
+<tr>
+<td>value</td>
+<td>The value for each option in choices or in additionalNotesObj</td>
+<td><a href="http://schema.repronim.org/value">http://schema.repronim.org/value</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="participant"><a class="toclink" href="#participant">Participant</a></h3>
+<p>An Agent describing characteristics associated with a participant.</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/Participant">http://schema.repronim.org/Participant</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subject_id</td>
+<td>The identifier of a participant</td>
+<td><a href="http://purl.org/nidash/nidm#subject_id">http://purl.org/nidash/nidm#subject_id</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="softwareagent"><a class="toclink" href="#softwareagent">SoftwareAgent</a></h3>
+<p>Captures information about some action that took place. It also links to information (entities) that were used during the activity</p>
+<p><strong>URI:</strong> <a href="http://schema.repronim.org/SoftwareAgent">http://schema.repronim.org/SoftwareAgent</a></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>URI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>URL of the item.</td>
+<td><a href="http://schema.org/url">http://schema.org/url</a></td>
+</tr>
+<tr>
+<td>version</td>
+<td>The version of the CreativeWork embodied by a specified resource.</td>
+<td><a href="http://schema.org/version">http://schema.org/version</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC-BY 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
