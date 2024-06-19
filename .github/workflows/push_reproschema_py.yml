@@ -1,0 +1,66 @@
+name: Create Pull Request in Another Repository
+on:
+#  push:
+#    paths: 'releases'
+  push:
+    branches:
+      - ga_push
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+#      - name: Checking the last release
+#        run: |
+#          LAST_VERSION=$(ls -lt releases/ | grep ^d | head -1 | awk '{print $9}')
+
+      - name: Set up Git and cloning repository
+        env:
+          TARGET_REPO: djarecka/reproschema-py
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git clone https://github.com/$TARGET_REPO.git
+          cd reproschema-py
+          git checkout -b release #_$LAST_VERSION
+
+#      - name: Clone target repository
+#        env:
+#          TARGET_REPO: djarecka/reproschema-py
+#        run: |
+#          git clone https://github.com/$TARGET_REPO.git
+#          cd reproschema-py
+#          git checkout -b release #_$LAST_VERSION
+
+      - name: Make changes to target repository
+        run: |
+          # TODO
+          LAST_VERSION=$(ls -lt releases/ | grep ^d | head -1 | awk '{print $9}')
+          cp releases/$LAST_VERSION/reproschema.jsonld reproschema-py/
+          cd reproschema-py
+          # Add your script or commands here to make changes to the repository
+          # For example, let's create a new file
+          #echo "Some changes" > new-file.txt
+          git add reproschema-py/reproschema.jsonld
+          git commit -m "Add new file"
+
+      - name: Push changes to target repository
+        env:
+          TARGET_REPO: djarecka/reproschema-py
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd your-target-repo
+          git push --set-upstream https://x-access-token:${GITHUB_TOKEN}@github.com/$TARGET_REPO.git your-feature-branch
+
+      - name: Create pull request
+        env:
+          TARGET_REPO: djarecka/reproschema-py
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+          -d '{"title":"Automated PR: Add new file", "head":"release", "base":"main"}' \
+          https://api.github.com/repos/$TARGET_REPO/pulls
