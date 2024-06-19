@@ -50,5 +50,5 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d '{"title":"Automated PR: Add new version of the model ${{ secrets.PERSONAL_ACCESS_TOKEN }}", "head":"release", "base":"master"}' \
+          -d '{"title":"Automated PR: Add new version of the model: ${{ steps.changes.outputs.last_version }}", "head":"release", "base":"master"}' \
           https://api.github.com/repos/$TARGET_REPO/pulls
