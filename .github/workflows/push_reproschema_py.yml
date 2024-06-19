@@ -13,11 +13,6 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
-
-#      - name: Checking the last release
-#        run: |
-#          LAST_VERSION=$(ls -lt releases/ | grep ^d | head -1 | awk '{print $9}')
-
       - name: Set up Git and cloning repository
         env:
           TARGET_REPO: djarecka/reproschema-py
@@ -26,28 +21,18 @@ jobs:
           git config --global user.name "djarecka"
           git config --global user.email "djarecka@gmail.com"
           git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
-          #cd reproschema-py
-          #git checkout -b release #_$LAST_VERSION
-
-#      - name: Clone target repository
-#        env:
-#          TARGET_REPO: djarecka/reproschema-py
-#        run: |
-#          git clone https://github.com/$TARGET_REPO.git
-#          cd reproschema-py
-#          git checkout -b release #_$LAST_VERSION
-
       - name: Make changes to target repository
+        id: changes
         run: |
           LAST_VERSION=$(ls -lt releases/ | grep ^d | head -1 | awk '{print $9}')
+          echo "::set-output name=last_version::$LAST_VERSION"
           echo "Last Version"
           echo $LAST_VERSION
           cp releases/$LAST_VERSION/reproschema.jsonld reproschema-py/reproschema.jsonld
           cd reproschema-py
-          git checkout -b release_2
-          # Add your script or commands here to make changes to the repository
-          # For example, let's create a new file
-          #echo "Some changes" > new-file.txt
+          git checkout -b release_$LAST_VERSION
+          # TODO: change to pydantic model
+          # TODO: a script to change CONTEXTFILE_URL can be added
           git add reproschema.jsonld
           git commit -m "Add new version of the model"
           cd ..
@@ -58,14 +43,12 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd reproschema-py
-          #git push --set-upstream https://x-access-token:${GITHUB_TOKEN}@github.com/$TARGET_REPO.git release
-          #git push --set-upstream https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git release
-          git push origin release_2
+          git push origin ${{ steps.changes.outputs.last_version }}
       - name: Create pull request
         env:
           TARGET_REPO: djarecka/reproschema-py
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d '{"title":"Automated PR: Add new file", "head":"release_2", "base":"master"}' \
+          -d '{"title":"Automated PR: Add new version of the model", "head":${{ steps.changes.outputs.last_version }}, "base":"master"}' \
           https://api.github.com/repos/$TARGET_REPO/pulls
