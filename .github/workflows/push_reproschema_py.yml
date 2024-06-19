@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Set up Git and cloning repository
         env:
-          TARGET_REPO: djarecka/reproschema-py
+          TARGET_REPO: reproschema/reproschema-py
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           git config --global user.name "djarecka"
@@ -39,14 +39,14 @@ jobs:
 
       - name: Push changes to target repository
         env:
-          TARGET_REPO: djarecka/reproschema-py
+          TARGET_REPO: reproschema/reproschema-py
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd reproschema-py
           git push origin release
       - name: Create pull request
         env:
-          TARGET_REPO: djarecka/reproschema-py
+          TARGET_REPO: reproschema/reproschema-py
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
