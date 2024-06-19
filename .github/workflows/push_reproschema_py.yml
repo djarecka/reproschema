@@ -55,7 +55,7 @@ jobs:
           TARGET_REPO: djarecka/reproschema-py
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          cd your-target-repo
+          #cd your-target-repo
           git push --set-upstream https://x-access-token:${GITHUB_TOKEN}@github.com/$TARGET_REPO.git release
       - name: Create pull request
         env:
