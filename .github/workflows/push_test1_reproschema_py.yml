@@ -1,0 +1,26 @@
+name: Push File
+
+on: push
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Create pull request
+      uses: haiiliin/action-pull-request-another-repo@v1.0.3
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      with:
+        source_folder: 'releases/1.0.0-rc4'
+        destination_repo: 'djarecka/reproschema-py'
+        destination_folder: 'reproschema'
+        destination_base_branch: 'main'
+        destination_head_branch: 'rel_test'
+        user_email: 'djarecka@gmail.com'
+        user_name: 'djarecka'
+        #pull_request_reviewers: 'reviewers'
+        title: 'title'
+        body: 'body'
