@@ -26,8 +26,8 @@ jobs:
           git config --global user.name "djarecka"
           git config --global user.email "djarecka@gmail.com"
           git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
-          # cd reproschema-py
-          git checkout -b release #_$LAST_VERSION
+          #cd reproschema-py
+          #git checkout -b release #_$LAST_VERSION
 
 #      - name: Clone target repository
 #        env:
@@ -45,11 +45,13 @@ jobs:
           echo $LAST_VERSION
           cp releases/$LAST_VERSION/reproschema.jsonld reproschema-py/reproschema.jsonld
           cd reproschema-py
+          git checkout -b release #_$LAST_VERSION
           # Add your script or commands here to make changes to the repository
           # For example, let's create a new file
           #echo "Some changes" > new-file.txt
           git add reproschema.jsonld
           git commit -m "Add new file"
+          cd ..
 
       - name: Push changes to target repository
         env:
