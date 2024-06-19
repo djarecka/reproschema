@@ -42,7 +42,7 @@ jobs:
           LAST_VERSION=$(ls -lt releases/ | grep ^d | head -1 | awk '{print $9}')
           echo "Last Version"
           echo $LAST_VERSION
-          cp releases/$LAST_VERSION/reproschema.jsonld reproschema-py/
+          cp releases/$LAST_VERSION/reproschema.jsonld reproschema-py/reproschema.jsonld
           cd reproschema-py
           # Add your script or commands here to make changes to the repository
           # For example, let's create a new file
