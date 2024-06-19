@@ -43,7 +43,7 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd reproschema-py
-          git push origin ${{ steps.changes.outputs.last_version }}
+          git push origin release_${{ steps.changes.outputs.last_version }}
       - name: Create pull request
         env:
           TARGET_REPO: djarecka/reproschema-py
