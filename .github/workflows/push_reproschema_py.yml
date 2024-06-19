@@ -25,7 +25,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git clone https://github.com/$TARGET_REPO.git
-          cd reproschema-py
+          # cd reproschema-py
           git checkout -b release #_$LAST_VERSION
 
 #      - name: Clone target repository
@@ -40,6 +40,8 @@ jobs:
         run: |
           # TODO
           LAST_VERSION=$(ls -lt releases/ | grep ^d | head -1 | awk '{print $9}')
+          echo "Last Version"
+          echo $LAST_VERSION
           cp releases/$LAST_VERSION/reproschema.jsonld reproschema-py/
           cd reproschema-py
           # Add your script or commands here to make changes to the repository
