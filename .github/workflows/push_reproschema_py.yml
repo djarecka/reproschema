@@ -57,7 +57,7 @@ jobs:
           TARGET_REPO: djarecka/reproschema-py
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          #cd reproschema-py
+          cd reproschema-py
           #git push --set-upstream https://x-access-token:${GITHUB_TOKEN}@github.com/$TARGET_REPO.git release
           #git push --set-upstream https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git release
           git push origin release_1
