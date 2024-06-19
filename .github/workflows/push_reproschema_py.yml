@@ -30,7 +30,7 @@ jobs:
           echo $LAST_VERSION
           cp releases/$LAST_VERSION/reproschema.jsonld reproschema-py/reproschema.jsonld
           cd reproschema-py
-          git checkout -b release_$LAST_VERSION
+          git checkout -b release
           # TODO: change to pydantic model
           # TODO: a script to change CONTEXTFILE_URL can be added
           git add reproschema.jsonld
@@ -43,12 +43,12 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd reproschema-py
-          git push origin release_${{ steps.changes.outputs.last_version }}
+          git push origin release
       - name: Create pull request
         env:
           TARGET_REPO: djarecka/reproschema-py
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d '{"title":"Automated PR: Add new version of the model", "head":release_${{ steps.changes.outputs.last_version }}, "base":"master"}' \
+          -d '{"title":"Automated PR: Add new version of the model", "head":"release", "base":"master"}' \
           https://api.github.com/repos/$TARGET_REPO/pulls
