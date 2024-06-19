@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git clone https://github.com/$TARGET_REPO.git
+          git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
           # cd reproschema-py
           git checkout -b release #_$LAST_VERSION
 
@@ -53,15 +53,14 @@ jobs:
       - name: Push changes to target repository
         env:
           TARGET_REPO: djarecka/reproschema-py
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          # cd your-target-repo
+          cd your-target-repo
           git push --set-upstream https://x-access-token:${GITHUB_TOKEN}@github.com/$TARGET_REPO.git release
-
       - name: Create pull request
         env:
           TARGET_REPO: djarecka/reproschema-py
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           curl -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
           -d '{"title":"Automated PR: Add new file", "head":"release", "base":"main"}' \
