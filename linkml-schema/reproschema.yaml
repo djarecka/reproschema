@@ -741,7 +741,7 @@ enums:
         description: Lets the user record without providing a stop button or showing how many seconds are left.
         meaning: reproschema:videoRecordNoStop
       #audiovideo
-      audioCheck:
+      audioVideoCheck:
         title: audioVideoCheck
         description: Checks if the user can input audio and video of sufficient quality.
         meaning: reproschema:audioVideoCheck
