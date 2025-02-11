@@ -692,113 +692,160 @@ enums:
     permissible_values:
       radio:
         title: radio
-        description: A radio button input type.
+        description: Lets the user select one or multiple options for a multiple choice question.
         meaning: reproschema:radio
+      #audio
       audioCheck:
         title: audioCheck
-        description: An audio check input type.
+        description: Checks if the user can input audio of sufficient quality.
         meaning: reproschema:audioCheck
       audioRecord:
         title: audioRecord
-        description: An audio record input type.
+        description: Allows the user to record audio
         meaning: reproschema:audioRecord
       audioPassageRecord:
         title: audioPassageRecord
-        description: An audio passage record input type.
+        description: Lets the user record themselves reading a passage for 60 seconds.
         meaning: reproschema:audioPassageRecord
       audioImageRecord:
         title: audioImageRecord
-        description: An audio image record input type.
+        description: Lets the user record themselves describing an image for 60 seconds.
         meaning: reproschema:audioImageRecord
       audioRecordNumberTask:
         title: audioRecordNumberTask
-        description: An audio record number task input type.
+        description: Lets the user record themselves saying the name of a 6-digit number within 5 seconds.
         meaning: reproschema:audioRecordNumberTask
       audioRecordAudioTask:
         title: audioRecordAudioTask
-        description: An audio record audio task input type.
+        description: Displays an error message if the user's audio input is not working.
         meaning: reproschema:audioRecordAudioTask
       audioRecordNoStop:
         title: audioRecordNoStop
-        description: An audio record no stop input type.
+        description: Lets the user record without providing a stop button or showing how many seconds are left.
         meaning: reproschema:audioRecordNoStop
+      #video
+      videoCheck:
+        title: videoCheck
+        description: Checks if the user can input video of sufficient quality.
+        meaning: reproschema:videoCheck
+      videoRecord:
+        title: videoRecord
+        description: Allows the user to record a silent video.
+        meaning: reproschema:videoRecord
+      videoRecordVideoTask:
+        title: videoRecordVideoTask
+        description: Displays an error message if the user's video input is not working.
+        meaning: reproschema:videoRecordVideoTask
+      videoRecordNoStop:
+        title: videoRecordNoStop
+        description: Lets the user record without providing a stop button or showing how many seconds are left.
+        meaning: reproschema:videoRecordNoStop
+      #audiovideo
+      audioVideoCheck:
+        title: audioVideoCheck
+        description: Checks if the user can input audio and video of sufficient quality.
+        meaning: reproschema:audioVideoCheck
+      audioVideoRecord:
+        title: audioVideoRecord
+        description: Allows the user to record audio and video.
+        meaning: reproschema:audioVideoRecord
+      audioVideoPassageRecord:
+        title: audioVideoPassageRecord
+        description: Lets the user record a video of themselves reading a passage for 60 seconds.
+        meaning: reproschema:audioVideoPassageRecord
+      audioVideoImageRecord:
+        title: audioVideoImageRecord
+        description: Lets the user record a video of themselves describing an image for 60 seconds.
+        meaning: reproschema:audioVideoImageRecord
+      audioVideoRecordNumberTask:
+        title: audioVideoRecordNumberTask
+        description: Lets the user record a video of themselves saying the name of a 6-digit number within 5 seconds.
+        meaning: reproschema:audioVideoRecordNumberTask
+      audioVideoRecordAudioTask:
+        title: audioVideoRecordAudioTask
+        description: Displays an error message if the user's audio input is not working.
+        meaning: reproschema:audioVideoRecordAudioTask
+      audioVideoRecordNoStop:
+        title: audioVideoRecordNoStop
+        description: Lets the user record without providing a stop button or showing how many seconds are left.
+        meaning: reproschema:audioVideoRecordNoStop
       text:
         title: text
-        description: A text input type.
+        description: Lets the user input a little bit of text.
         meaning: reproschema:text
       textarea:
         title: textarea
-        description: A textarea input type.
+        description: Lets the user input multiple lines of text.
         meaning: reproschema:textarea
       pid:
         title: pid
-        description: A pid input type.
+        description: Lets the user submit their participant ID.
         meaning: reproschema:pid
       email:
         title: email
-        description: An email input type.
+        description: Lets the user input their email and validates the email.
         meaning: reproschema:email
       timeRange:
         title: timeRange
-        description: A time range input type.
+        description: Lets the user input when they went to sleep and woke up, and calculates sleeping time.
         meaning: reproschema:timeRange
       multitext:
         title: multitext
-        description: A multitext input type.
+        description: Lets the user input their first name, middle name, and last name in three separate text boxes.
         meaning: reproschema:multitext
       number:
         title: number
-        description: A number input type.
+        description: Lets the user input an integer and validates their response.
         meaning: reproschema:number
       float:
         title: float
-        description: A float input type.
+        description: Lets the user input a float and validates their response.
         meaning: reproschema:float
       range:
         title: range
-        description: A range input type.
+        description: Lets the user input two floats that describe a range and select a unit from a dropdown.
         meaning: reproschema:range
       date:
         title: date
-        description: A date input type.
+        description: Lets the user input a date in YYYY MM DD format.
         meaning: reproschema:date
       year:
         title: year
-        description: A year input type.
+        description: Lets the user input a year in YYYY format.
         meaning: reproschema:year
       documentUpload:
         title: documentUpload
-        description: A document upload input type.
+        description: Lets the user upload a document.
         meaning: reproschema:documentUpload
       slider:
         title: slider
-        description: A slider input type.
+        description: Lets the user select a value on a number line using a slider (can pick if max and min values are labeled).
         meaning: reproschema:slider
       selectCountry:
         title: selectCountry
-        description: A select country input type.
+        description: Lets the user select a country from a dropdown.
         meaning: reproschema:selectCountry
       selectState:
         title: selectState
-        description: A select state input type.
+        description: Lets the user select a state from a dropdown.
         meaning: reproschema:selectState
       selectLanguage:
         title: selectLanguage
-        description: A select language input type.
+        description: Lets the user select the language they want to complete the protocol in from a dropdown.
         meaning: reproschema:selectLanguage
       select:
         title: select
-        description: A select input type.
+        description: Lets the user select one or multiple items from a dropdown.
         meaning: reproschema:select
       static:
         title: static
-        description: A static input type.
+        description: Lets the user submit an input that has been set for them (such as participant ID).
         meaning: reproschema:static
       save:
         title: save
-        description: A save input type.
+        description: Saves the user's inputs.
         meaning: reproschema:save
       sign:
         title: sign
-        description: A sign input type.
+        description: Displays the consent form and lets the user sign it.
         meaning: reproschema:sign
