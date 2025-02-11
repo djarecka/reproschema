@@ -745,7 +745,7 @@ enums:
         title: audioVideoCheck
         description: Checks if the user can input audio and video of sufficient quality.
         meaning: reproschema:audioVideoCheck
-      audioRecord:
+      audioVideoRecord:
         title: audioVideoRecord
         description: Allows the user to record audio and video.
         meaning: reproschema:audioVideoRecord
